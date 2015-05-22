@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<style th:replace="inc/bootstrap :: inc"></style>
+
+	<style>
+		#header {
+			display: block;
+			position: running(header);
+		}
+		#footer {
+			display: block;
+			position: running(footer);
+		}
+
+		#content {
+			page-break-after: always;
+		}
+
+		.pagenumber:before {
+			content: counter(page);
+		}
+
+		.pagecount:before {
+			content: counter(pages);
+		}
+
+		@page {
+			@top-center { content: element(header) }
+		}
+
+		@page {
+			@bottom-center { content: element(footer) }
+		}
+
+		@page {
+			margin-bottom: 5cm;
+			margin-left: 3.5cm;
+			margin-right: 0.5cm;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		Put your header content here...
+	</div>
+	<div id="footer">
+		Put your footer content here... <br />
+		Page <span class="pagenumber"></span> of <span class="pagecount"></span>
+	</div>
+	<div id="content">
+		Put your page content here...
+	</div>
+</body>
+</html>
